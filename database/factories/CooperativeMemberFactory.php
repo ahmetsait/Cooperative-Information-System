@@ -22,8 +22,9 @@ class CooperativeMemberFactory extends Factory
     public function definition()
     {
         return [
-            'member_id' => $this->faker->word,
-        'registration' => $this->faker->date('Y-m-d H:i:s')
+            'member_id' => \App\Models\Farmer::pluck('id')[$this->faker->numberBetween(1, \App\Models\Farmer::count() - 1)],
+            'cooperative_id' => \App\Models\Cooperative::pluck('id')[$this->faker->numberBetween(1, \App\Models\Cooperative::count() - 1)],
+            'registration' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

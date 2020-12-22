@@ -22,14 +22,13 @@ class CooperativeFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->word,
-        'establishment_date' => $this->faker->word,
-        'founder_id' => $this->faker->word,
-        'president_id' => $this->faker->word,
-        'city_code' => $this->faker->randomDigitNotNull,
-        'address' => $this->faker->word,
-        'email' => $this->faker->word,
-        'member_count' => $this->faker->randomDigitNotNull
+            'name' => $this->faker->company,
+            'establishment_date' => $this->faker->date(),
+            'founder_id' => \App\Models\Farmer::pluck('id')[$this->faker->numberBetween(1, \App\Models\Farmer::count() - 1)],
+            'president_id' => \App\Models\Farmer::pluck('id')[$this->faker->numberBetween(1, \App\Models\Farmer::count() - 1)],
+            'city_code' => \App\Models\City::pluck('code')[$this->faker->numberBetween(1, \App\Models\City::count() - 1)],
+            'address' => $this->faker->address,
+            'email' => $this->faker->email
         ];
     }
 }

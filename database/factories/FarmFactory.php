@@ -22,14 +22,14 @@ class FarmFactory extends Factory
     public function definition()
     {
         return [
-            'registration' => $this->faker->date('Y-m-d H:i:s'),
-        'owner_id' => $this->faker->word,
-        'city_code' => $this->faker->randomDigitNotNull,
-        'latitude' => $this->faker->randomDigitNotNull,
-        'longitude' => $this->faker->randomDigitNotNull,
-        'area' => $this->faker->word,
-        'soil_type' => $this->faker->randomDigitNotNull,
-        'unit_worth' => $this->faker->word
+            'registration' => $this->faker->date(),
+            'owner_id' => \App\Models\Farmer::pluck('id')[$this->faker->numberBetween(1, \App\Models\Farmer::count() - 1)],
+            'city_code' => \App\Models\City::pluck('code')[$this->faker->numberBetween(1, \App\Models\City::count() - 1)],
+            'latitude' => $this->faker->randomFloat(2,-90,90),
+            'longitude' => $this->faker->randomFloat(2,-180,180),
+            'area' => $this->faker->numberBetween(1,2000),
+            'soil_type' => \App\Models\SoilType::pluck('id')[$this->faker->numberBetween(1, \App\Models\SoilType::count() - 1)],
+            'unit_worth' => $this->faker->numberBetween(100,20000)
         ];
     }
 }

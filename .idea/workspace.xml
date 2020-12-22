@@ -3,20 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="7fdbb816-2b0c-43bc-babf-54a5acc546e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CooperativeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CooperativeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CooperativeMemberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CooperativeMemberController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FarmController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FarmController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Cooperative.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Cooperative.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/CooperativeMember.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CooperativeMember.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Farmer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Farmer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/CityFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CityFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cities/show_fields.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cities/show_fields.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cities/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cities/table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cooperative_members/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cooperative_members/table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cooperatives/fields.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cooperatives/fields.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/farm_crops/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/farm_crops/table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/farmers/fields.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/farmers/fields.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/farmers/show_fields.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/farmers/show_fields.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/CooperativeFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CooperativeFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/CooperativeMemberFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CooperativeMemberFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/FarmCropFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/FarmCropFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/FarmFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/FarmFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/FarmerFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/FarmerFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +174,7 @@
       <option name="presentableId" value="Default" />
       <updated>1608657414227</updated>
       <workItem from="1608657447663" duration="41000" />
-      <workItem from="1608657507698" duration="11248000" />
+      <workItem from="1608657507698" duration="12919000" />
     </task>
     <servers />
   </component>

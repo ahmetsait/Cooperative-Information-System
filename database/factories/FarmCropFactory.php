@@ -22,9 +22,10 @@ class FarmCropFactory extends Factory
     public function definition()
     {
         return [
-            'crop_id' => $this->faker->randomDigitNotNull,
-        'planting_date' => $this->faker->word,
-        'area' => $this->faker->word
+            'farm_id' => \App\Models\Farm::pluck('id')[$this->faker->numberBetween(1, \App\Models\Farm::count() - 1)],
+            'crop_id' => \App\Models\Crop::pluck('id')[$this->faker->numberBetween(1, \App\Models\Crop::count() - 1)],
+            'planting_date' => $this->faker->date(),
+            'area' => $this->faker->numberBetween(1,2000)
         ];
     }
 }

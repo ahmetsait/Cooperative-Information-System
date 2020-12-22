@@ -22,14 +22,14 @@ class FarmerFactory extends Factory
     public function definition()
     {
         return [
-            'registration' => $this->faker->date('Y-m-d H:i:s'),
-        'name' => $this->faker->word,
-        'surname' => $this->faker->word,
-        'birthday' => $this->faker->word,
-        'phone' => $this->faker->word,
-        'email' => $this->faker->word,
-        'address' => $this->faker->word,
-        'experience' => $this->faker->randomDigitNotNull
+            'id' => strval($this->faker->numberBetween(10000000000,99999999999)),
+            'registration' => $this->faker->date(),
+            'name' => $this->faker->firstName,
+            'surname' => $this->faker->lastName,
+            'birthday' => $this->faker->date(),
+            'phone' => $this->faker->phoneNumber,
+            'email' => $this->faker->email,
+            'address' => $this->faker->address
         ];
     }
 }
