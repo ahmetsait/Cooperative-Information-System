@@ -42,8 +42,7 @@ class Cooperative extends Model
         'president_id',
         'city_code',
         'address',
-        'email',
-        'member_count'
+        'email'
     ];
 
     /**
@@ -75,8 +74,7 @@ class Cooperative extends Model
         'president_id' => 'nullable|string|max:11',
         'city_code' => 'nullable|integer',
         'address' => 'required|string|max:500',
-        'email' => 'required|string|max:254',
-        'member_count' => 'required|integer'
+        'email' => 'required|string|max:254'
     ];
 
     /**

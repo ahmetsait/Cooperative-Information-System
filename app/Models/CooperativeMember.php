@@ -43,7 +43,7 @@ class CooperativeMember extends Model
     protected $casts = [
         'cooperative_id' => 'integer',
         'member_id' => 'string',
-        'registration' => 'datetime'
+        'registration' => 'datetime:Y-m-d'
     ];
 
     /**

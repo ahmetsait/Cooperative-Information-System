@@ -1,18 +1,8 @@
-<!-- Registration Field -->
+<!-- TC Kimlik Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('registration', 'Registration:') !!}
-    {!! Form::text('registration', null, ['class' => 'form-control','id'=>'registration']) !!}
+    {!! Form::label('id', 'Tc Kimlik Numarasi:') !!}
+    {!! Form::text('id', null, ['class' => 'form-control','minlength' => 11,'maxlength' => 11]) !!}
 </div>
-
-@push('scripts')
-    <script type="text/javascript">
-        $('#registration').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
-            useCurrent: true,
-            sideBySide: true
-        })
-    </script>
-@endpush
 
 <!-- Name Field -->
 <div class="form-group col-sm-6">
@@ -58,12 +48,6 @@
 <div class="form-group col-sm-6">
     {!! Form::label('address', 'Address:') !!}
     {!! Form::text('address', null, ['class' => 'form-control','maxlength' => 500,'maxlength' => 500]) !!}
-</div>
-
-<!-- Experience Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('experience', 'Experience:') !!}
-    {!! Form::number('experience', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

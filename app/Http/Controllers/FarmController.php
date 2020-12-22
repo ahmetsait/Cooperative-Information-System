@@ -51,9 +51,14 @@ class FarmController extends AppBaseController
      * @param CreateFarmRequest $request
      *
      * @return Response
+     * @throws \Exception
      */
     public function store(CreateFarmRequest $request)
     {
+        $request->merge([
+            'registration' => $this->convert_to_server_date($request->get('registration'))
+        ]);
+
         $input = $request->all();
 
         $farm = $this->farmRepository->create($input);
@@ -61,6 +66,17 @@ class FarmController extends AppBaseController
         Flash::success('Farm saved successfully.');
 
         return redirect(route('farms.index'));
+    }
+
+    function convert_to_server_date($date, $format = 'n/j/Y g:i:s A', $userTimeZone = 'Europe/Istanbul', $serverTimeZone = 'UTC')
+    {
+        try {
+            $dateTime = new \DateTime($date, new \DateTimeZone($userTimeZone));
+            $dateTime->setTimezone(new \DateTimeZone($serverTimeZone));
+            return $dateTime->format($format);
+        } catch (\Exception $e) {
+            return '';
+        }
     }
 
     /**

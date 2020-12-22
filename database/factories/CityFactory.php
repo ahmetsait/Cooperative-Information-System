@@ -23,7 +23,7 @@ class CityFactory extends Factory
     {
         return [
             'name' => $this->faker->word,
-        'area' => $this->faker->word
+            'area' => $this->faker->word
         ];
     }
 }

@@ -54,6 +54,10 @@ class CooperativeController extends AppBaseController
      */
     public function store(CreateCooperativeRequest $request)
     {
+        $request->merge([
+            'establishment_date' => $this->convert_to_server_date($request->get('establishment_date'))
+        ]);
+
         $input = $request->all();
 
         $cooperative = $this->cooperativeRepository->create($input);
@@ -61,6 +65,17 @@ class CooperativeController extends AppBaseController
         Flash::success('Cooperative saved successfully.');
 
         return redirect(route('cooperatives.index'));
+    }
+
+    function convert_to_server_date($date, $format = 'n/j/Y g:i:s A', $userTimeZone = 'Europe/Istanbul', $serverTimeZone = 'UTC')
+    {
+        try {
+            $dateTime = new \DateTime($date, new \DateTimeZone($userTimeZone));
+            $dateTime->setTimezone(new \DateTimeZone($serverTimeZone));
+            return $dateTime->format($format);
+        } catch (\Exception $e) {
+            return '';
+        }
     }
 
     /**

@@ -1,3 +1,9 @@
+<!-- TC Kimlik Field -->
+<div class="form-group">
+    {!! Form::label('id', 'TC Kimlik:') !!}
+    <p>{{ $farmer->id }}</p>
+</div>
+
 <!-- Registration Field -->
 <div class="form-group">
     {!! Form::label('registration', 'Registration:') !!}

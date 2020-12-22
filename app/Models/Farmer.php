@@ -35,14 +35,13 @@ class Farmer extends Model
 
 
     public $fillable = [
-        'registration',
+        'id',
         'name',
         'surname',
         'birthday',
         'phone',
         'email',
-        'address',
-        'experience'
+        'address'
     ];
 
     /**
@@ -64,18 +63,18 @@ class Farmer extends Model
 
     /**
      * Validation rules
+     * TODO : Registration date nullable ozelligi
      *
      * @var array
      */
     public static $rules = [
-        'registration' => 'required',
+        'id' => 'required|string|max:11',
         'name' => 'required|string|max:100',
         'surname' => 'required|string|max:100',
         'birthday' => 'required',
         'phone' => 'nullable|string|max:20',
         'email' => 'nullable|string|max:254',
-        'address' => 'required|string|max:500',
-        'experience' => 'required|integer'
+        'address' => 'required|string|max:500'
     ];
 
     /**

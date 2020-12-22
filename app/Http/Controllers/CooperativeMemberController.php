@@ -8,6 +8,7 @@ use App\Repositories\CooperativeMemberRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\DB;
 use Response;
 
 class CooperativeMemberController extends AppBaseController
@@ -29,7 +30,9 @@ class CooperativeMemberController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $cooperativeMembers = $this->cooperativeMemberRepository->all();
+
+//        $cooperativeMembers = $this->cooperativeMemberRepository->all();
+        $cooperativeMembers = DB::select('SELECT cooperativemember.registration , cooperatives.name as "Koop", farmers.name as "Farm" FROM cooperatives, cooperativemember, farmers WHERE cooperatives.id = cooperativemember.cooperative_id AND farmers.id = cooperativemember.member_id');
 
         return view('cooperative_members.index')
             ->with('cooperativeMembers', $cooperativeMembers);
