@@ -1,0 +1,46 @@
+[
+    {
+        "name": "cooperative_id",
+        "dbType": "integer,false",
+        "htmlType": null,
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": true,
+        "inForm": false,
+        "inIndex": false,
+        "inView": false
+    },
+    {
+        "name": "member_id",
+        "dbType": "string,11",
+        "htmlType": "text",
+        "validations": "required|string|max:11|string|max:11",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "registration",
+        "dbType": "datetime",
+        "htmlType": "date",
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "type": "relation",
+        "relation": "mt1,Cooperative,cooperative_id"
+    },
+    {
+        "type": "relation",
+        "relation": "mt1,Farmer,member_id"
+    }
+]

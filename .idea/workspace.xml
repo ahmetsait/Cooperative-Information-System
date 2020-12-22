@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fdbb816-2b0c-43bc-babf-54a5acc546e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ytu-database-management-termpaper-1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ytu-database-management-termpaper-1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,6 +137,7 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
     </include_path>
   </component>
   <component name="ProjectId" id="1m1NzJhrsoVMZM06jWN3A4P5HR6" />
@@ -169,7 +171,7 @@
       <option name="presentableId" value="Default" />
       <updated>1608657414227</updated>
       <workItem from="1608657447663" duration="41000" />
-      <workItem from="1608657507698" duration="1127000" />
+      <workItem from="1608657507698" duration="4999000" />
     </task>
     <servers />
   </component>
@@ -185,5 +187,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="634" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608657449173" />
+    <state x="628" y="133" width="810" height="774" key="find.popup" timestamp="1608662511223">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="628" y="133" width="810" height="774" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608662511223" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1608662164564">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608662164564" />
   </component>
 </project>

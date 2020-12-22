@@ -20,3 +20,24 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::resource('farmers', App\Http\Controllers\FarmerController::class);
+
+Route::resource('cities', App\Http\Controllers\CityController::class);
+
+Route::resource('soilTypes', App\Http\Controllers\SoilTypeController::class);
+
+
+
+Route::resource('farms', App\Http\Controllers\FarmController::class);
+
+Route::resource('crops', App\Http\Controllers\CropController::class);
+
+Route::resource('farmCrops', App\Http\Controllers\FarmCropController::class);
+
+
+
+Route::resource('cooperatives', App\Http\Controllers\CooperativeController::class);
+
+Route::resource('cooperativeMembers', App\Http\Controllers\CooperativeMemberController::class);
