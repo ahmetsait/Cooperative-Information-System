@@ -17,7 +17,7 @@
         @foreach($farms as $farm)
             <tr>
                 <td>{{ $farm->registration }}</td>
-            <td>{{ $farm->owner_id }}</td>
+            <td>{{ isset($farm->owner_id) ? $farm->owner_id : 'This Farm On Sale' }}</td>
             <td>{{ $farm->city_code }}</td>
             <td>{{ $farm->latitude }}</td>
             <td>{{ $farm->longitude }}</td>

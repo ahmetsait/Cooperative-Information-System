@@ -26,6 +26,7 @@ class City extends Model
     public $timestamps = false;
 
     public $fillable = [
+        'code',
         'name',
         'area'
     ];
@@ -47,6 +48,7 @@ class City extends Model
      * @var array
      */
     public static $rules = [
+        'code' => 'required|integer|min:0',
         'name' => 'required|string|max:100',
         'area' => 'required|numeric'
     ];

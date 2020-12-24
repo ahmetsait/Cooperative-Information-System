@@ -2,6 +2,7 @@
     <table class="table" id="crops-table">
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Name</th>
         <th>Category</th>
         <th>Seed Unit Price</th>
@@ -13,6 +14,7 @@
         <tbody>
         @foreach($crops as $crop)
             <tr>
+                <td>{{ $crop->id }}</td>
                 <td>{{ $crop->name }}</td>
             <td>{{ $crop->category }}</td>
             <td>{{ $crop->seed_unit_price }}</td>

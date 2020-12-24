@@ -41,3 +41,7 @@ Route::resource('farmCrops', App\Http\Controllers\FarmCropController::class);
 Route::resource('cooperatives', App\Http\Controllers\CooperativeController::class);
 
 Route::resource('cooperativeMembers', App\Http\Controllers\CooperativeMemberController::class);
+
+Route::get('/solution8', [App\Http\Controllers\SolutionsController::class, 'solution_8'])->name('solution8');
+Route::get('/basequery', [App\Http\Controllers\SolutionsController::class, 'get_custom_query_page'])->name('basequery');
+Route::post('/basequery', [App\Http\Controllers\SolutionsController::class, 'post_custom_query_page'])->name('postbasequery');

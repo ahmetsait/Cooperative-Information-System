@@ -1,3 +1,9 @@
+<!-- City Code Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('code', 'City Code:') !!}
+    {!! Form::number('code', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('name', 'Name:') !!}

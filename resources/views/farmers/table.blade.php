@@ -2,6 +2,7 @@
     <table class="table" id="farmers-table">
         <thead>
             <tr>
+                <th>Tc Kimlik No</th>
                 <th>Registration</th>
         <th>Name</th>
         <th>Surname</th>
@@ -16,6 +17,7 @@
         <tbody>
         @foreach($farmers as $farmer)
             <tr>
+                <td>{{ $farmer->id }}</td>
                 <td>{{ $farmer->registration }}</td>
             <td>{{ $farmer->name }}</td>
             <td>{{ $farmer->surname }}</td>

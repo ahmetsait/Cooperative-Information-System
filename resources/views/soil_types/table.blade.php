@@ -2,6 +2,7 @@
     <table class="table" id="soilTypes-table">
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Name</th>
                 <th colspan="3">Action</th>
             </tr>
@@ -9,6 +10,7 @@
         <tbody>
         @foreach($soilTypes as $soilType)
             <tr>
+                <td>{{ $soilType->id }}</td>
                 <td>{{ $soilType->name }}</td>
                 <td>
                     {!! Form::open(['route' => ['soilTypes.destroy', $soilType->id], 'method' => 'delete']) !!}

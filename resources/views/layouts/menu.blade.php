@@ -32,3 +32,12 @@
     <a href="{{ route('cooperativeMembers.index') }}"><i class="fa fa-edit"></i><span>Cooperative Members</span></a>
 </li>
 
+<li class="{{ Request::is('basequery*') ? 'active' : '' }}">
+    <a href="{{ route('basequery') }}"><i class="fa fa-edit"></i><span>Base Query</span></a>
+</li>
+
+<li class="{{ Request::is('solution8*') ? 'active' : '' }}">
+    <a href="{{ route('solution8') }}"><i class="fa fa-edit"></i><span>Solution-8</span></a>
+</li>
+
+

@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fdbb816-2b0c-43bc-babf-54a5acc546e3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/solutions/basequery.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/solutions/basequerytable.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/solutions/enterbasequery.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/City.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/City.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cities/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cities/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cities/fields.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cities/fields.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/crops/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/crops/table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/farmers/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/farmers/table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/farms/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/farms/table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/soil_types/show_fields.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/soil_types/show_fields.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/soil_types/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/soil_types/table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,8 +160,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/solutions" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\github\ytu-database-management-termpaper-1\resources\views\solutions" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -180,7 +198,8 @@
       <updated>1608657414227</updated>
       <workItem from="1608657447663" duration="41000" />
       <workItem from="1608657507698" duration="15366000" />
-      <workItem from="1608722281887" duration="3772000" />
+      <workItem from="1608722281887" duration="7526000" />
+      <workItem from="1608815503365" duration="9576000" />
     </task>
     <servers />
   </component>
@@ -188,21 +207,29 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1608824586553">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608824586553" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1608657500239">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608657500239" />
-    <state x="634" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1608722434746">
+    <state x="634" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1608815503708">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="634" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608722434746" />
+    <state x="634" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608815503708" />
     <state x="628" y="133" width="810" height="774" key="find.popup" timestamp="1608662511223">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="628" y="133" width="810" height="774" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608662511223" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1608663946436">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1608822003339">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608663946436" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608822003339" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608823375430">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608823375430" />
   </component>
 </project>
