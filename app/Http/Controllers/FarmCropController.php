@@ -8,6 +8,7 @@ use App\Repositories\FarmCropRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\DB;
 use Response;
 
 class FarmCropController extends AppBaseController
@@ -29,10 +30,9 @@ class FarmCropController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $farmCrops = $this->farmCropRepository->all();
-
-        return view('farm_crops.index')
-            ->with('farmCrops', $farmCrops);
+        $header = "Arsalara Ekilen Mahsüller";
+        $sql = 'SELECT cr.name as "Ekilen Bitki Ismi",fc.* FROM farmcrop fc LEFT JOIN crops cr ON fc.crop_id=cr.id';
+        return $this->query_view_generator($header,__FILE__,$sql,'farm_crops.index');
     }
 
     /**
@@ -42,6 +42,8 @@ class FarmCropController extends AppBaseController
      */
     public function create()
     {
+        $sql = 'INSERT INTO farmcrop (farm_id,crop_id,planting_date,area) VALUES (form.farm_id,form.crop_id,form.planting_date,form.area); ';
+        $this->query_info_flasher(__FILE__,$sql);
         return view('farm_crops.create');
     }
 
@@ -56,74 +58,12 @@ class FarmCropController extends AppBaseController
     {
         $input = $request->all();
 
-        $farmCrop = $this->farmCropRepository->create($input);
-
-        Flash::success('Farm Crop saved successfully.');
-
-        return redirect(route('farmCrops.index'));
-    }
-
-    /**
-     * Display the specified FarmCrop.
-     *
-     * @param int $id
-     *
-     * @return Response
-     */
-    public function show($id)
-    {
-        $farmCrop = $this->farmCropRepository->find($id);
-
-        if (empty($farmCrop)) {
-            Flash::error('Farm Crop not found');
-
-            return redirect(route('farmCrops.index'));
+        try {
+            $farmCrop = $this->farmCropRepository->create($input);
+            Flash::success('Farm Crop saved successfully.');
+        } catch (\Exception $ex) {
+            Flash::error('Veritabanında bulunmayan arsa veya mahsülü ekme işleminde bulunamazsınız.');
         }
-
-        return view('farm_crops.show')->with('farmCrop', $farmCrop);
-    }
-
-    /**
-     * Show the form for editing the specified FarmCrop.
-     *
-     * @param int $id
-     *
-     * @return Response
-     */
-    public function edit($id)
-    {
-        $farmCrop = $this->farmCropRepository->find($id);
-
-        if (empty($farmCrop)) {
-            Flash::error('Farm Crop not found');
-
-            return redirect(route('farmCrops.index'));
-        }
-
-        return view('farm_crops.edit')->with('farmCrop', $farmCrop);
-    }
-
-    /**
-     * Update the specified FarmCrop in storage.
-     *
-     * @param int $id
-     * @param UpdateFarmCropRequest $request
-     *
-     * @return Response
-     */
-    public function update($id, UpdateFarmCropRequest $request)
-    {
-        $farmCrop = $this->farmCropRepository->find($id);
-
-        if (empty($farmCrop)) {
-            Flash::error('Farm Crop not found');
-
-            return redirect(route('farmCrops.index'));
-        }
-
-        $farmCrop = $this->farmCropRepository->update($request->all(), $id);
-
-        Flash::success('Farm Crop updated successfully.');
 
         return redirect(route('farmCrops.index'));
     }
@@ -139,7 +79,10 @@ class FarmCropController extends AppBaseController
      */
     public function destroy($id)
     {
-        $farmCrop = $this->farmCropRepository->find($id);
+        $farm_id = intval(explode('-',$id)[0]);
+        $crop_id = explode('-',$id)[1];
+        $sql = "SELECT * FROM farmcrop WHERE crop_id='" . ($crop_id) . "'  AND farm_id=" . $farm_id . " ;";
+        $farmCrop = DB::select($sql);
 
         if (empty($farmCrop)) {
             Flash::error('Farm Crop not found');
@@ -147,7 +90,13 @@ class FarmCropController extends AppBaseController
             return redirect(route('farmCrops.index'));
         }
 
-        $this->farmCropRepository->delete($id);
+        $sql_delete = "DELETE FROM farmcrop WHERE crop_id='" . ($crop_id) . "'  AND farm_id=" . $farm_id . " ;";
+        if (DB::statement($sql_delete)) {
+            Flash::success('Cooperative Member deleted successfully.');
+        } else {
+            Flash::error('Cooperative Member Could Not Deleted');
+
+        }
 
         Flash::success('Farm Crop deleted successfully.');
 

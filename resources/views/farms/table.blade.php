@@ -1,40 +1,44 @@
 <div class="table-responsive">
     <table class="table" id="farms-table">
-        <thead>
+
+        @if(isset($result[0]))
+            <thead>
             <tr>
-                <th>Registration</th>
-        <th>Owner Id</th>
-        <th>City Code</th>
-        <th>Latitude</th>
-        <th>Longitude</th>
-        <th>Area</th>
-        <th>Soil Type</th>
-        <th>Unit Worth</th>
+                @foreach( $result[0] as  $header_key => $value )
+                    <th>{{ $header_key }}</th>
+                @endforeach
                 <th colspan="3">Action</th>
             </tr>
-        </thead>
-        <tbody>
-        @foreach($farms as $farm)
+            </thead>
+            <tbody>
+
+            @foreach(($result) as $row)
+                <tr>
+                    @foreach( $row as  $row_key => $row_value)
+                        <td>{{ $row_value }}</td>
+                    @endforeach
+
+                    <td>
+                        {!! Form::open(['route' => ['farms.destroy', $row->id], 'method' => 'delete']) !!}
+                        <div class='btn-group'>
+                            <a href="{{ route('farms.show', [$row->id]) }}" class='btn btn-default btn-xs'><i
+                                    class="glyphicon glyphicon-eye-open"></i></a>
+                            <a href="{{ route('farms.edit', [$row->id]) }}" class='btn btn-default btn-xs'><i
+                                    class="glyphicon glyphicon-edit"></i></a>
+                            {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        </div>
+                        {!! Form::close() !!}
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        @endif
+        @if(!isset($result[0]))
+            <thead>
             <tr>
-                <td>{{ $farm->registration }}</td>
-            <td>{{ isset($farm->owner_id) ? $farm->owner_id : 'This Farm On Sale' }}</td>
-            <td>{{ $farm->city_code }}</td>
-            <td>{{ $farm->latitude }}</td>
-            <td>{{ $farm->longitude }}</td>
-            <td>{{ $farm->area }}</td>
-            <td>{{ $farm->soil_type }}</td>
-            <td>{{ $farm->unit_worth }}</td>
-                <td>
-                    {!! Form::open(['route' => ['farms.destroy', $farm->id], 'method' => 'delete']) !!}
-                    <div class='btn-group'>
-                        <a href="{{ route('farms.show', [$farm->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                        <a href="{{ route('farms.edit', [$farm->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                        {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                    </div>
-                    {!! Form::close() !!}
-                </td>
+                Sorgu Sonucunda Deger Bulunamadi (Boş Sonuç Dizgesi Döndü)
             </tr>
-        @endforeach
-        </tbody>
+            </thead>
+        @endif
     </table>
 </div>

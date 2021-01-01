@@ -8,6 +8,7 @@ use App\Repositories\FarmRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\DB;
 use Response;
 
 class FarmController extends AppBaseController
@@ -29,10 +30,9 @@ class FarmController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $farms = $this->farmRepository->all();
-
-        return view('farms.index')
-            ->with('farms', $farms);
+        $header = "Sisteme Kayıtlı Arsalar";
+        $sql = 'SELECT * FROM farms';
+        return $this->query_view_generator($header,__FILE__,$sql,'farms.index');
     }
 
     /**
@@ -42,6 +42,8 @@ class FarmController extends AppBaseController
      */
     public function create()
     {
+        $sql = 'INSERT INTO farms (registration,owner_id,city_code,lattitude,longitude,area,soil_type,unit_worth) VALUES (form.registration,form.owner_id,form.city_code,form.lattitude,form.longitude,form.area,form.soil_type,form.unit_worth); ';
+        $this->query_info_flasher(__FILE__,$sql);
         return view('farms.create');
     }
 
@@ -115,6 +117,9 @@ class FarmController extends AppBaseController
 
             return redirect(route('farms.index'));
         }
+
+        $sql = 'UPDATE farms SET registration = form.registration, owner_id = form.owner_id,city_code = form.city_code,lattitude = form.lattitude,longitude= form.longitude, area = form.area,soil_type=form.soil_type,unit_worth=form.unit_worth ; ';
+        $this->query_info_flasher(__FILE__,$sql);
 
         return view('farms.edit')->with('farm', $farm);
     }

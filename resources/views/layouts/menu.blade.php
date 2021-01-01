@@ -37,7 +37,14 @@
 </li>
 
 <li class="{{ Request::is('solution8*') ? 'active' : '' }}">
-    <a href="{{ route('solution8') }}"><i class="fa fa-edit"></i><span>Solution-8</span></a>
+    <a href="{{ route('solution8') }}"><i class="fa fa-edit"></i><span>Sisteme Kayıtlı Tüm Adresler</span></a>
 </li>
 
+<li class="{{ Request::is('solution10*') ? 'active' : '' }}">
+    <a href="{{ route('solution10get') }}"><i class="fa fa-edit"></i><span>Verilen Mahsulu Eken Ciftciler ve Kooperatifleri</span></a>
+</li>
+
+<li class="{{ Request::is('solution11*') ? 'active' : '' }}">
+    <a href="{{ route('solution11get') }}"><i class="fa fa-edit"></i><span>Verilen Mahsulu Eken Ciftcilerin İsim ve Soyisimleri</span></a>
+</li>
 

@@ -1,24 +1,25 @@
 <div class="table-responsive">
     <table class="table" id="cooperativeMembers-table">
+        @if(isset($result[0]))
         <thead>
-            <tr>
-                <th>Cooperative Id</th>
-                <th>Member Id</th>
-        <th>Registration</th>
-                <th colspan="3">Action</th>
-            </tr>
+        <tr>
+            @foreach( $result[0] as  $header_key => $value )
+                <th>{{ $header_key }}</th>
+            @endforeach
+            <th colspan="3"> Action </th>
+        </tr>
         </thead>
         <tbody>
-        @foreach($cooperativeMembers as $cooperativeMember)
+
+        @foreach(($result) as $row)
             <tr>
-                <td>{{ $cooperativeMember->Koop }}</td>
-                <td>{{ $cooperativeMember->Farm }}</td>
-            <td>{{ $cooperativeMember->registration }}</td>
+                @foreach( $row as  $row_key => $row_value)
+                    <td>{{ $row_value }}</td>
+                @endforeach
+
                 <td>
-                    {!! Form::open(['route' => ['cooperativeMembers.destroy', $cooperativeMember->Koop], 'method' => 'delete']) !!}
+                    {!! Form::open(['route' => ['cooperativeMembers.destroy', ($row->coop_id . '-' . $row->member_id)], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{{ route('cooperativeMembers.show', [$cooperativeMember->Koop]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                        <a href="{{ route('cooperativeMembers.edit', [$cooperativeMember->Koop]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
                         {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}
@@ -26,5 +27,14 @@
             </tr>
         @endforeach
         </tbody>
+        @endif
+
+        @if(!isset($result[0]))
+            <thead>
+            <tr>
+                Sorgu Sonucunda Deger Bulunamadi (Boş Sonuç Dizgesi Döndü)
+            </tr>
+            </thead>
+        @endif
     </table>
 </div>

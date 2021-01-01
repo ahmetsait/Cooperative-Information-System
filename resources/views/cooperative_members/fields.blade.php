@@ -1,3 +1,9 @@
+<!-- Coop Id Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('cooperative_id', 'Cooperative Id:') !!}
+    {!! Form::number('cooperative_id', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Member Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('member_id', 'Member Id:') !!}

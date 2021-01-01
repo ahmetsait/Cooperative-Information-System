@@ -8,6 +8,7 @@ use App\Repositories\SoilTypeRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\DB;
 use Response;
 
 class SoilTypeController extends AppBaseController
@@ -29,10 +30,9 @@ class SoilTypeController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $soilTypes = $this->soilTypeRepository->all();
-
-        return view('soil_types.index')
-            ->with('soilTypes', $soilTypes);
+        $header = "Sisteme Kayıtlı Toprak Türleri";
+        $sql = 'SELECT * FROM soiltypes';
+        return $this->query_view_generator($header,__FILE__,$sql,'soil_types.index');
     }
 
     /**
@@ -42,6 +42,8 @@ class SoilTypeController extends AppBaseController
      */
     public function create()
     {
+        $sql = 'INSERT INTO soiltypes (name) VALUES (form.name);';
+        $this->query_info_flasher(__FILE__,$sql);
         return view('soil_types.create');
     }
 
@@ -99,6 +101,9 @@ class SoilTypeController extends AppBaseController
 
             return redirect(route('soilTypes.index'));
         }
+
+        $sql = 'UPDATE soiltypes SET name=form.name WHERE id=id';
+        $this->query_info_flasher(__FILE__,$sql);
 
         return view('soil_types.edit')->with('soilType', $soilType);
     }

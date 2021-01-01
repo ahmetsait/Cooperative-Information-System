@@ -8,6 +8,7 @@ use App\Repositories\CropRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\DB;
 use Response;
 
 class CropController extends AppBaseController
@@ -29,10 +30,9 @@ class CropController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $crops = $this->cropRepository->all();
-
-        return view('crops.index')
-            ->with('crops', $crops);
+        $header = "Sisteme kayıtlı Mahsüller";
+        $sql = 'SELECT * FROM crops';
+        return $this->query_view_generator($header,__FILE__,$sql,'crops.index');
     }
 
     /**
@@ -42,6 +42,8 @@ class CropController extends AppBaseController
      */
     public function create()
     {
+        $sql = 'INSERT INTO crops (name,category,seed_unit_price,crop_standart_price,experience) VALUES (form.name,form.category,form.seed_unit_price,form.crop_standart_price,form.experience); ';
+        $this->query_info_flasher(__FILE__,$sql);
         return view('crops.create');
     }
 
@@ -99,6 +101,9 @@ class CropController extends AppBaseController
 
             return redirect(route('crops.index'));
         }
+
+        $sql = 'UPDATE crops SET name=form.name,category=form.category,seed_unit_price=form.seed_unit_price,crop_standart_price=form.crop_standart_price,experience=form.experience WHERE id=id; ';
+        $this->query_info_flasher(__FILE__,$sql);
 
         return view('crops.edit')->with('crop', $crop);
     }

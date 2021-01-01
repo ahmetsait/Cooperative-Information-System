@@ -1,30 +1,29 @@
 <div class="table-responsive">
     <table class="table" id="crops-table">
+        @if(isset($result[0]))
         <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-        <th>Category</th>
-        <th>Seed Unit Price</th>
-        <th>Crop Standard Price</th>
-        <th>Experience</th>
+        <tr>
+            @foreach( $result[0] as  $header_key => $value )
+                <th>{{ $header_key }}</th>
+            @endforeach
                 <th colspan="3">Action</th>
-            </tr>
+        </tr>
         </thead>
         <tbody>
-        @foreach($crops as $crop)
+
+        @foreach(($result) as $row)
             <tr>
-                <td>{{ $crop->id }}</td>
-                <td>{{ $crop->name }}</td>
-            <td>{{ $crop->category }}</td>
-            <td>{{ $crop->seed_unit_price }}</td>
-            <td>{{ $crop->crop_standard_price }}</td>
-            <td>{{ $crop->experience }}</td>
+                @foreach( $row as  $row_key => $row_value)
+                    <td>{{ $row_value }}</td>
+                @endforeach
+
                 <td>
-                    {!! Form::open(['route' => ['crops.destroy', $crop->id], 'method' => 'delete']) !!}
+                    {!! Form::open(['route' => ['crops.destroy', $row->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{{ route('crops.show', [$crop->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                        <a href="{{ route('crops.edit', [$crop->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                        <a href="{{ route('crops.show', [$row->id]) }}" class='btn btn-default btn-xs'><i
+                                class="glyphicon glyphicon-eye-open"></i></a>
+                        <a href="{{ route('crops.edit', [$row->id]) }}" class='btn btn-default btn-xs'><i
+                                class="glyphicon glyphicon-edit"></i></a>
                         {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}
@@ -32,5 +31,14 @@
             </tr>
         @endforeach
         </tbody>
+        @endif
+
+        @if(!isset($result[0]))
+            <thead>
+            <tr>
+                Sorgu Sonucunda Deger Bulunamadi (Boş Sonuç Dizgesi Döndü)
+            </tr>
+            </thead>
+        @endif
     </table>
 </div>

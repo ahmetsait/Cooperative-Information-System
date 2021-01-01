@@ -21,10 +21,10 @@
                         {!! Form::text('header', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
                     </div>
 
-                <!-- Name Field -->
+                <!-- SQL Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('sql', 'Select İçeren Sql Sorgunuzu Yazınız:') !!}
-                        {!! Form::textarea('sql', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                        {!! Form::textarea('sql', null, ['class' => 'form-control','maxlength' => 1024,'maxlength' => 1024]) !!}
                     </div>
 
                     <!-- Submit Field -->

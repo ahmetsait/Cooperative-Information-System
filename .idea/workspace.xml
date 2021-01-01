@@ -2,19 +2,65 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fdbb816-2b0c-43bc-babf-54a5acc546e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/solutions/basequery.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/solutions/basequerytable.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/solutions/enterbasequery.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/cities-index.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/farmer-index.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/solutions/11.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/solutions/solution10get.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/City.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/City.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AppBaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AppBaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CooperativeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CooperativeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CooperativeMemberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CooperativeMemberController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CropController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CropController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FarmController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FarmController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FarmCropController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FarmCropController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FarmerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FarmerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SoilTypeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SoilTypeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SolutionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SolutionsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/CooperativeMember.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CooperativeMember.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/FarmCrop.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/FarmCrop.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cities/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cities/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/cities/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cities/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cities/fields.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cities/fields.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cities/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cities/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cities/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cities/table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cooperative_members/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cooperative_members/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cooperative_members/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cooperative_members/fields.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cooperative_members/fields.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cooperative_members/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cooperative_members/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cooperative_members/show.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cooperative_members/show_fields.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cooperative_members/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cooperative_members/table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cooperatives/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cooperatives/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cooperatives/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cooperatives/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cooperatives/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cooperatives/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cooperatives/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cooperatives/table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/crops/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/crops/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/crops/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/crops/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/crops/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/crops/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/crops/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/crops/table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/farm_crops/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/farm_crops/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/farm_crops/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/farm_crops/fields.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/farm_crops/fields.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/farm_crops/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/farm_crops/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/farm_crops/show.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/farm_crops/show_fields.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/farm_crops/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/farm_crops/table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/farmers/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/farmers/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/farmers/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/farmers/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/farmers/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/farmers/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/farmers/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/farmers/table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/farms/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/farms/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/farms/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/farms/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/farms/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/farms/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/farms/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/farms/table.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/soil_types/show_fields.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/soil_types/show_fields.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/soil_types/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/soil_types/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/soil_types/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/soil_types/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/soil_types/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/soil_types/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/soil_types/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/soil_types/table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/solutions/basequerytable.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/solutions/basequerytable.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/solutions/enterbasequery.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/solutions/enterbasequery.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -199,7 +245,12 @@
       <workItem from="1608657447663" duration="41000" />
       <workItem from="1608657507698" duration="15366000" />
       <workItem from="1608722281887" duration="7526000" />
-      <workItem from="1608815503365" duration="9576000" />
+      <workItem from="1608815503365" duration="9828000" />
+      <workItem from="1609151341046" duration="3203000" />
+      <workItem from="1609275372592" duration="1879000" />
+      <workItem from="1609423957964" duration="1959000" />
+      <workItem from="1609427328693" duration="17848000" />
+      <workItem from="1609492822296" duration="5825000" />
     </task>
     <servers />
   </component>
@@ -211,22 +262,27 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608824586553" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1608657500239">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1609447286090">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608657500239" />
-    <state x="634" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1608815503708">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609447286090" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1609281335756">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="634" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608815503708" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609281335756" />
+    <state x="634" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1609492822390">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="451" y="241" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1609427349459" />
+    <state x="634" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609492822390" />
     <state x="628" y="133" width="810" height="774" key="find.popup" timestamp="1608662511223">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="628" y="133" width="810" height="774" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608662511223" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1608822003339">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1609454340506">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608822003339" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1609454340506" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608823375430">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

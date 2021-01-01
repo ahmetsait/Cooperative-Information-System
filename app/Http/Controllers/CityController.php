@@ -8,6 +8,7 @@ use App\Repositories\CityRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\DB;
 use Response;
 
 class CityController extends AppBaseController
@@ -29,10 +30,9 @@ class CityController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $cities = $this->cityRepository->all();
-
-        return view('cities.index')
-            ->with('cities', $cities);
+        $header = "Sisteme Kayıtlı Bütün Şehirler";
+        $sql = 'SELECT * FROM cities';
+        return $this->query_view_generator($header,__FILE__,$sql,'cities.index','cities-index.jpg');
     }
 
     /**
@@ -42,6 +42,8 @@ class CityController extends AppBaseController
      */
     public function create()
     {
+        $sql = 'INSERT INTO cities (id,name,area) VALUES (form.id,form.name,form.area); ';
+        $this->query_info_flasher(__FILE__,$sql);
         return view('cities.create');
     }
 
@@ -57,8 +59,6 @@ class CityController extends AppBaseController
         $input = $request->all();
 
         $city = $this->cityRepository->create($input);
-
-        Flash::success('City saved successfully.');
 
         return redirect(route('cities.index'));
     }
@@ -93,6 +93,10 @@ class CityController extends AppBaseController
     public function edit($id)
     {
         $city = $this->cityRepository->find($id);
+
+        $sql = 'UPDATE cities SET id = form.id, name = form.name , area = form.area WHERE id=id /* OLD ID Saved */;';
+        $this->query_info_flasher(__FILE__,$sql);
+
 
         if (empty($city)) {
             Flash::error('City not found');

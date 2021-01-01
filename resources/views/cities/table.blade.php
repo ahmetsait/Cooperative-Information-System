@@ -1,24 +1,28 @@
 <div class="table-responsive">
     <table class="table" id="cities-table">
+        @if(isset($result[0]))
         <thead>
-            <tr>
-                <th>Sehir Kodu</th>
-                <th>Name</th>
-        <th>Area</th>
-                <th colspan="3">Action</th>
-            </tr>
+        <tr>
+            @foreach( $result[0] as  $header_key => $value )
+                <th>{{ $header_key }}</th>
+            @endforeach
+            <th colspan="3">Action</th>
+        </tr>
         </thead>
         <tbody>
-        @foreach($cities as $city)
+
+        @foreach(($result) as $row)
             <tr>
-                <td>{{ $city->code }}</td>
-                <td>{{ $city->name }}</td>
-            <td>{{ $city->area }}</td>
+                @foreach( $row as  $row_key => $row_value)
+                    <td>{{ $row_value }}</td>
+                @endforeach
                 <td>
-                    {!! Form::open(['route' => ['cities.destroy', $city->code], 'method' => 'delete']) !!}
+                    {!! Form::open(['route' => ['cities.destroy', $row->code], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{{ route('cities.show', [$city->code]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                        <a href="{{ route('cities.edit', [$city->code]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                        <a href="{{ route('cities.show', [$row->code]) }}" class='btn btn-default btn-xs'><i
+                                class="glyphicon glyphicon-eye-open"></i></a>
+                        <a href="{{ route('cities.edit', [$row->code]) }}" class='btn btn-default btn-xs'><i
+                                class="glyphicon glyphicon-edit"></i></a>
                         {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}
@@ -26,5 +30,13 @@
             </tr>
         @endforeach
         </tbody>
+        @endif
+        @if(!isset($result[0]))
+            <thead>
+            <tr>
+                Sorgu Sonucunda Deger Bulunamadi (Boş Sonuç Dizgesi Döndü)
+            </tr>
+            </thead>
+        @endif
     </table>
 </div>

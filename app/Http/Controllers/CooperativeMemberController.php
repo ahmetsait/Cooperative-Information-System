@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateCooperativeMemberRequest;
-use App\Http\Requests\UpdateCooperativeMemberRequest;
 use App\Repositories\CooperativeMemberRepository;
-use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Illuminate\Support\Facades\DB;
@@ -30,12 +28,15 @@ class CooperativeMemberController extends AppBaseController
      */
     public function index(Request $request)
     {
+        $header = "Kooperatifler ve Kayıtlı Üyeler";
+        $sql = 'SELECT cooperatives.name as "Uye Olunan Koop.", farmers.name as "Uye Isim", ' .
+            'cooperativemember.registration , cooperativemember.cooperative_id as "coop_id", ' .
+            ' cooperativemember.member_id as "member_id" ' .
+            ' FROM cooperatives, cooperativemember, farmers ' .
+            ' WHERE cooperatives.id = cooperativemember.cooperative_id AND ' .
+            ' farmers.id = cooperativemember.member_id';
 
-//        $cooperativeMembers = $this->cooperativeMemberRepository->all();
-        $cooperativeMembers = DB::select('SELECT cooperativemember.registration , cooperatives.name as "Koop", farmers.name as "Farm" FROM cooperatives, cooperativemember, farmers WHERE cooperatives.id = cooperativemember.cooperative_id AND farmers.id = cooperativemember.member_id');
-
-        return view('cooperative_members.index')
-            ->with('cooperativeMembers', $cooperativeMembers);
+        return $this->query_view_generator($header,__FILE__,$sql,'cooperative_members.index');
     }
 
     /**
@@ -45,6 +46,8 @@ class CooperativeMemberController extends AppBaseController
      */
     public function create()
     {
+        $sql = 'INSERT INTO cooperativemember (cooperative_id,member_id,registration) VALUES (form.cooperative_id,form.member_id,form.registration); ';
+        $this->query_info_flasher(__FILE__,$sql);
         return view('cooperative_members.create');
     }
 
@@ -66,70 +69,6 @@ class CooperativeMemberController extends AppBaseController
         return redirect(route('cooperativeMembers.index'));
     }
 
-    /**
-     * Display the specified CooperativeMember.
-     *
-     * @param int $id
-     *
-     * @return Response
-     */
-    public function show($id)
-    {
-        $cooperativeMember = $this->cooperativeMemberRepository->find($id);
-
-        if (empty($cooperativeMember)) {
-            Flash::error('Cooperative Member not found');
-
-            return redirect(route('cooperativeMembers.index'));
-        }
-
-        return view('cooperative_members.show')->with('cooperativeMember', $cooperativeMember);
-    }
-
-    /**
-     * Show the form for editing the specified CooperativeMember.
-     *
-     * @param int $id
-     *
-     * @return Response
-     */
-    public function edit($id)
-    {
-        $cooperativeMember = $this->cooperativeMemberRepository->find($id);
-
-        if (empty($cooperativeMember)) {
-            Flash::error('Cooperative Member not found');
-
-            return redirect(route('cooperativeMembers.index'));
-        }
-
-        return view('cooperative_members.edit')->with('cooperativeMember', $cooperativeMember);
-    }
-
-    /**
-     * Update the specified CooperativeMember in storage.
-     *
-     * @param int $id
-     * @param UpdateCooperativeMemberRequest $request
-     *
-     * @return Response
-     */
-    public function update($id, UpdateCooperativeMemberRequest $request)
-    {
-        $cooperativeMember = $this->cooperativeMemberRepository->find($id);
-
-        if (empty($cooperativeMember)) {
-            Flash::error('Cooperative Member not found');
-
-            return redirect(route('cooperativeMembers.index'));
-        }
-
-        $cooperativeMember = $this->cooperativeMemberRepository->update($request->all(), $id);
-
-        Flash::success('Cooperative Member updated successfully.');
-
-        return redirect(route('cooperativeMembers.index'));
-    }
 
     /**
      * Remove the specified CooperativeMember from storage.
@@ -142,18 +81,23 @@ class CooperativeMemberController extends AppBaseController
      */
     public function destroy($id)
     {
-        $cooperativeMember = $this->cooperativeMemberRepository->find($id);
+        $coop_id = intval(explode('-',$id)[0]);
+        $member_id = explode('-',$id)[1];
+        $sql = "SELECT * FROM cooperativemember WHERE member_id='" . ($member_id) . "'  AND cooperative_id=" . $coop_id . " ;";
+        $cooperativeMember = DB::select($sql);
 
         if (empty($cooperativeMember)) {
             Flash::error('Cooperative Member not found');
-
             return redirect(route('cooperativeMembers.index'));
         }
 
-        $this->cooperativeMemberRepository->delete($id);
+        $sql_delete = "DELETE FROM cooperativemember WHERE member_id='" . ($member_id) . "'  AND cooperative_id=" . $coop_id . " ;";
+        if (DB::statement($sql_delete)) {
+            Flash::success('Cooperative Member deleted successfully.');
+        } else {
+            Flash::error('Cooperative Member Could Not Deleted');
 
-        Flash::success('Cooperative Member deleted successfully.');
-
+        }
         return redirect(route('cooperativeMembers.index'));
     }
 }

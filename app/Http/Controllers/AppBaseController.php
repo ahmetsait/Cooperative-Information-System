@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use InfyOm\Generator\Utils\ResponseUtil;
 use Response;
+use Flash;
+
 
 /**
  * @SWG\Swagger(
@@ -35,4 +38,20 @@ class AppBaseController extends Controller
             'message' => $message
         ], 200);
     }
+
+
+    public function query_view_generator($header, $from, $sql, $view = 'solutions.basequery',$image_name = null) {
+        $query_result = DB::select($sql);
+
+        Flash::success($from . ' dosyasi calisti. Calistirilan Sorgu: <br> ' . $sql );
+        return view($view)
+            ->with('header',$header)
+            ->with('img_name',$image_name)
+            ->with('result',$query_result);
+    }
+
+    public function query_info_flasher($from, $sql) {
+        Flash::info($from . ' dosyasından calistirilacak olan sorgu: <br> ' . $sql);
+    }
+
 }

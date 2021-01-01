@@ -1,28 +1,44 @@
 <div class="table-responsive">
     <table class="table" id="soilTypes-table">
-        <thead>
+        @if(isset($result[0]))
+            <thead>
             <tr>
-                <th>ID</th>
-                <th>Name</th>
+                @foreach( $result[0] as  $header_key => $value )
+                    <th>{{ $header_key }}</th>
+                @endforeach
                 <th colspan="3">Action</th>
             </tr>
-        </thead>
-        <tbody>
-        @foreach($soilTypes as $soilType)
+            </thead>
+            <tbody>
+            @foreach(($result) as $row)
+                <tr>
+                    @foreach( $row as  $row_key => $row_value)
+                        <td>{{ $row_value }}</td>
+                    @endforeach
+                    <td>
+                        {!! Form::open(['route' => ['soilTypes.destroy', $row->id], 'method' => 'delete']) !!}
+                        <div class='btn-group'>
+                            <a href="{{ route('soilTypes.show', [$row->id]) }}" class='btn btn-default btn-xs'><i
+                                    class="glyphicon glyphicon-eye-open"></i></a>
+                            <a href="{{ route('soilTypes.edit', [$row->id]) }}" class='btn btn-default btn-xs'><i
+                                    class="glyphicon glyphicon-edit"></i></a>
+                            {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        </div>
+                        {!! Form::close() !!}
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+
+        @endif
+
+        @if(!isset($result[0]))
+            <thead>
             <tr>
-                <td>{{ $soilType->id }}</td>
-                <td>{{ $soilType->name }}</td>
-                <td>
-                    {!! Form::open(['route' => ['soilTypes.destroy', $soilType->id], 'method' => 'delete']) !!}
-                    <div class='btn-group'>
-                        <a href="{{ route('soilTypes.show', [$soilType->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                        <a href="{{ route('soilTypes.edit', [$soilType->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                        {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                    </div>
-                    {!! Form::close() !!}
-                </td>
+                Sorgu Sonucunda Deger Bulunamadi (Boş Sonuç Dizgesi Döndü)
             </tr>
-        @endforeach
-        </tbody>
+            </thead>
+        @endif
+
     </table>
 </div>

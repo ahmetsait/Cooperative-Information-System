@@ -45,3 +45,10 @@ Route::resource('cooperativeMembers', App\Http\Controllers\CooperativeMemberCont
 Route::get('/solution8', [App\Http\Controllers\SolutionsController::class, 'solution_8'])->name('solution8');
 Route::get('/basequery', [App\Http\Controllers\SolutionsController::class, 'get_custom_query_page'])->name('basequery');
 Route::post('/basequery', [App\Http\Controllers\SolutionsController::class, 'post_custom_query_page'])->name('postbasequery');
+
+
+Route::get('/solution10', [App\Http\Controllers\SolutionsController::class, 'solution_10_get'])->name('solution10get');
+Route::post('/solution10', [App\Http\Controllers\SolutionsController::class, 'solution_10_post'])->name('solution10post');
+
+Route::get('/solution11', [App\Http\Controllers\SolutionsController::class, 'solution_11_get'])->name('solution11get');
+Route::post('/solution11', [App\Http\Controllers\SolutionsController::class, 'solution_11_post'])->name('solution11post');

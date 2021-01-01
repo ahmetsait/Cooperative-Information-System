@@ -8,6 +8,7 @@ use App\Repositories\FarmerRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\DB;
 use Response;
 
 class FarmerController extends AppBaseController
@@ -29,10 +30,9 @@ class FarmerController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $farmers = $this->farmerRepository->all();
-
-        return view('farmers.index')
-            ->with('farmers', $farmers);
+        $header = "Sisteme Kayıtlı Çiftçiler";
+        $sql = 'SELECT * FROM farmers ORDER BY experience DESC';
+        return $this->query_view_generator($header,__FILE__,$sql,'farmers.index','farmer-index.JPG');
     }
 
     /**
@@ -42,6 +42,8 @@ class FarmerController extends AppBaseController
      */
     public function create()
     {
+        $sql = ('INSERT INTO farmers (id,name,surname,birthday,phone,email,address) VALUES (form.id,form.name, form.surname,form.birthday,form.phone,form.email,form.address)');
+        $this->query_info_flasher(__FILE__,$sql);
         return view('farmers.create');
     }
 
@@ -57,8 +59,6 @@ class FarmerController extends AppBaseController
         $input = $request->all();
 
         $farmer = $this->farmerRepository->create($input);
-
-        Flash::success('Farmer saved successfully.');
 
         return redirect(route('farmers.index'));
     }
@@ -95,10 +95,13 @@ class FarmerController extends AppBaseController
         $farmer = $this->farmerRepository->find($id);
 
         if (empty($farmer)) {
-            Flash::error('Farmer not found');
+            Flash::error('Farmer not found for given id');
 
             return redirect(route('farmers.index'));
         }
+
+        $sql = ('UPDATE farmers SET id =form.id,name= form.name,surname =form.surname,birthday=form.birthday,phone=form.phone,email=form.email,address=form.address WHERE id=id');
+        $this->query_info_flasher(__FILE__,$sql);
 
         return view('farmers.edit')->with('farmer', $farmer);
     }
@@ -122,8 +125,6 @@ class FarmerController extends AppBaseController
         }
 
         $farmer = $this->farmerRepository->update($request->all(), $id);
-
-        Flash::success('Farmer updated successfully.');
 
         return redirect(route('farmers.index'));
     }

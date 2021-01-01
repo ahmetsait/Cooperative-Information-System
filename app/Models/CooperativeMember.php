@@ -26,11 +26,8 @@ class CooperativeMember extends Model
     public $timestamps = false;
 
 
-    protected $dates = ['deleted_at'];
-
-
-
     public $fillable = [
+        'cooperative_id',
         'member_id',
         'registration'
     ];
@@ -52,6 +49,7 @@ class CooperativeMember extends Model
      * @var array
      */
     public static $rules = [
+        'cooperative_id' => 'required|integer',
         'member_id' => 'required|string|max:11',
         'registration' => 'required'
     ];

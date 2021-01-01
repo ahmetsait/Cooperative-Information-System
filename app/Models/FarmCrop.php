@@ -27,6 +27,7 @@ class FarmCrop extends Model
     public $timestamps = false;
 
     public $fillable = [
+        'farm_id',
         'crop_id',
         'planting_date',
         'area'
@@ -50,6 +51,7 @@ class FarmCrop extends Model
      * @var array
      */
     public static $rules = [
+        'farm_id' => 'required|integer',
         'crop_id' => 'required|integer',
         'planting_date' => 'required',
         'area' => 'required|numeric'

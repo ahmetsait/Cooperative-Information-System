@@ -1,3 +1,9 @@
+<!-- Farm Id Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('farm_id', 'Farm Id:') !!}
+    {!! Form::number('farm_id', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Crop Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('crop_id', 'Crop Id:') !!}
