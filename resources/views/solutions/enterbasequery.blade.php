@@ -16,13 +16,14 @@
                 {!! Form::open(['route' => 'postbasequery','method' => 'POST'] ) !!}
 
                 <!-- Header Field -->
-                    <div class="form-group col-sm-6">
+                    <div class="form-group col-sm-8">
                         {!! Form::label('header', 'Sorgunuza İsim Giriniz:') !!}
                         {!! Form::text('header', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
                     </div>
+                    <div class="clearfix"></div>
 
                 <!-- SQL Field -->
-                    <div class="form-group col-sm-6">
+                    <div class="form-group col-sm-8">
                         {!! Form::label('sql', 'Select İçeren Sql Sorgunuzu Yazınız:') !!}
                         {!! Form::textarea('sql', null, ['class' => 'form-control','maxlength' => 1024,'maxlength' => 1024]) !!}
                     </div>

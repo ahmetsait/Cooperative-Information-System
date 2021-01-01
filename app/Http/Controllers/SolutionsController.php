@@ -12,16 +12,17 @@ class SolutionsController extends AppBaseController
     public function solution_8 () {
         $header = "Sisteme Kayitli Tum Adresler";
         $sql = '(SELECT address FROM cooperatives) UNION (SELECT address FROM farmers);';
+        $this->query_info_flasher(__FILE__,$sql);
         return $this->query_view_generator($header,__FILE__,$sql);
     }
 
-
-    public function solution_9 () {
-        $sql = 'SELECT f.name, f.surname FROM farmers f, farms fa, farmcrop fc, crops c WHERE f.id=fa.owner_id AND fc.farm_id=fa.id AND c.id=fc.crop_id AND c.name=\'Barbunya\';';
-        $header = "Barbunya eken çiftçiler";
-
+    public function solution_smaller_than_average () {
+        $header = "Bütün Arsaların Average Değerinden Küçük Olan Arsaları ve Sahiplerini Dönen Sorgu";
+        $sql = 'SELECT id as "Arsa ID",owner_id "Sahip TC" FROM Farms WHERE (area * unit_worth) < (SELECT AVG(area * unit_worth) FROM Farms);';
+        $this->query_info_flasher(__FILE__,$sql);
         return $this->query_view_generator($header,__FILE__,$sql);
     }
+
 
     public function solution_10_get (Request $request) {
         $header = "Verilen Mahsulu Eken Ciftcilerden Kooperatife Uye Olanların Kooperatiflerinin İsimlerini ve Kendi İsimlerini Listeleyen Sorgu";
@@ -86,9 +87,37 @@ class SolutionsController extends AppBaseController
                 FROM farmers f, farms fa, farmcrop fc, crops c
                 WHERE f.id=fa.owner_id AND fc.farm_id=fa.id
                 AND c.id=fc.crop_id AND c.name='" . $input . "' ;";
-        return $this->query_view_generator($header,__FILE__,$sql,'solutions.solution10get');
+        return $this->query_view_generator($header,__FILE__,$sql,'solutions.solution11get');
     }
 
+
+    public function solution_13_get (Request $request) {
+        $header = "Verilen sayidan daha fazla arsaya sahip olan ciftci bilgilerini döndüren sorgu";
+        $sql = "SELECT * FROM get_farmer_own_farm_bigger_than_given(VERILEN_DEGER);";
+
+        $this->query_info_flasher(__FILE__,$sql);
+        return view('solutions.13')
+            ->with('header',$header);
+    }
+
+
+    public function solution_13_post (Request $request) {
+        $input = $request->get('input');
+        $header = $input . " sayisından daha fazla arsaya sahip olan ciftci bilgilerini döndüren sorgu";
+        $sql = "SELECT * FROM get_farmer_own_farm_bigger_than_given(" . $input . ");";
+        return $this->query_view_generator($header,__FILE__,$sql,'solutions.13');
+    }
+
+    public function solution_14 () {
+        $header = "Son Beş Yılda Arsalar ve Ekilen Ürünleri Dönen VIEW Sorgusu";
+        $sql = "SELECT * FROM planted_information_last_5_year;";
+
+        $this->query_info_flasher(__FILE__,$sql);
+        return $this->query_view_generator($header,__FILE__,$sql);
+    }
+
+    /*
+    */
 
 
     public function get_custom_query_page () {
