@@ -29,14 +29,15 @@ class CooperativeMemberController extends AppBaseController
     public function index(Request $request)
     {
         $header = "Kooperatifler ve Kayıtlı Üyeler";
-        $sql = 'SELECT cooperatives.name as "Uye Olunan Koop.", farmers.name as "Uye Isim", ' .
-            'cooperativemember.registration , cooperativemember.cooperative_id as "coop_id", ' .
-            ' cooperativemember.member_id as "member_id" ' .
-            ' FROM cooperatives, cooperativemember, farmers ' .
-            ' WHERE cooperatives.id = cooperativemember.cooperative_id AND ' .
-            ' farmers.id = cooperativemember.member_id';
+        $sql =
+            'SELECT cooperatives.name as "Uye Olunan Koop.", farmers.name as "Uye Isim",
+            cooperativemember.registration , cooperativemember.cooperative_id as "coop_id",
+            cooperativemember.member_id as "member_id"
+            FROM cooperatives, cooperativemember, farmers
+            WHERE cooperatives.id = cooperativemember.cooperative_id AND
+            farmers.id = cooperativemember.member_id';
 
-        return $this->query_view_generator($header,__FILE__,$sql,'cooperative_members.index');
+        return $this->query_view_generator($header,__FILE__,$sql,'cooperative_members.index','cooperative_members-index.jpg');
     }
 
     /**

@@ -32,7 +32,7 @@ class FarmCropController extends AppBaseController
     {
         $header = "Arsalara Ekilen Mahsüller";
         $sql = 'SELECT cr.name as "Ekilen Bitki Ismi",fc.* FROM farmcrop fc LEFT JOIN crops cr ON fc.crop_id=cr.id';
-        return $this->query_view_generator($header,__FILE__,$sql,'farm_crops.index');
+        return $this->query_view_generator($header,__FILE__,$sql,'farm_crops.index','farm_crop-index.jpg');
     }
 
     /**

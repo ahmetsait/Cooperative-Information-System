@@ -16,7 +16,7 @@
                 <div class="clearfix"></div>
 
                 <div class="text-center">
-                    <img src="{{ asset('img/' . (isset($img_name) ? $img_name : '')) }}"  width="360px" alt=""/>
+                    <img src="{{ asset('img/' . (isset($img_name) ? $img_name : '')) }}"  width="640px" alt=""/>
                 </div>
             </div>
         </div>

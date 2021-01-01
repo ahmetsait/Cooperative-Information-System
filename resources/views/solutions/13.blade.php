@@ -11,6 +11,11 @@
                 @include('flash::message')
                 <div class="clearfix"></div>
 
+                <div class="text-center">
+                    <img src="{{ asset('img/' . (isset($img_name) ? $img_name : '')) }}"  width="640px" alt=""/>
+                </div>
+                <div class="clearfix"></div>
+
                 <div class="row">
                 {!! Form::open(['route' => 'solution13post']) !!}
 

@@ -32,7 +32,7 @@ class SoilTypeController extends AppBaseController
     {
         $header = "Sisteme Kayıtlı Toprak Türleri";
         $sql = 'SELECT * FROM soiltypes';
-        return $this->query_view_generator($header,__FILE__,$sql,'soil_types.index');
+        return $this->query_view_generator($header,__FILE__,$sql,'soil_types.index','soil_types-index.jpg');
     }
 
     /**

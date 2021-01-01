@@ -32,7 +32,7 @@ class FarmerController extends AppBaseController
     {
         $header = "Sisteme Kayıtlı Çiftçiler";
         $sql = 'SELECT * FROM farmers ORDER BY experience DESC';
-        return $this->query_view_generator($header,__FILE__,$sql,'farmers.index','farmer-index.JPG');
+        return $this->query_view_generator($header,__FILE__,$sql,'farmers.index','farmer-index.jpg');
     }
 
     /**
@@ -57,9 +57,9 @@ class FarmerController extends AppBaseController
     public function store(CreateFarmerRequest $request)
     {
         $input = $request->all();
-
+        $sql = ('INSERT INTO farmers (id,name,surname,birthday,phone,email,address)
+                 VALUES (form.id,form.name, form.surname,form.birthday,form.phone,form.email,form.address)');
         $farmer = $this->farmerRepository->create($input);
-
         return redirect(route('farmers.index'));
     }
 
@@ -123,7 +123,15 @@ class FarmerController extends AppBaseController
 
             return redirect(route('farmers.index'));
         }
-
+        $sql = ('UPDATE farmers SET
+                 id =form.id,
+                 name= form.name,
+                 surname =form.surname,
+                 birthday=form.birthday,
+                 phone=form.phone,
+                 email=form.email,
+                 address=form.address
+                 WHERE id=' . $request->get('id'));
         $farmer = $this->farmerRepository->update($request->all(), $id);
 
         return redirect(route('farmers.index'));
@@ -141,17 +149,14 @@ class FarmerController extends AppBaseController
     public function destroy($id)
     {
         $farmer = $this->farmerRepository->find($id);
-
         if (empty($farmer)) {
             Flash::error('Farmer not found');
 
             return redirect(route('farmers.index'));
         }
-
+        $sql = "DELETE FROM farmers WHERE id=" . $id;
         $this->farmerRepository->delete($id);
-
         Flash::success('Farmer deleted successfully.');
-
         return redirect(route('farmers.index'));
     }
 }
