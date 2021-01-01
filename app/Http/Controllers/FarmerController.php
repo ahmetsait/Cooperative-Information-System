@@ -31,7 +31,7 @@ class FarmerController extends AppBaseController
     public function index(Request $request)
     {
         $header = "Sisteme Kayıtlı Çiftçiler";
-        $sql = 'SELECT * FROM farmers ORDER BY experience DESC';
+        $sql = 'SELECT * FROM farmers ORDER BY registration DESC';
         return $this->query_view_generator($header,__FILE__,$sql,'farmers.index','farmer-index.JPG');
     }
 

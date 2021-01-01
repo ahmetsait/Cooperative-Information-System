@@ -1,13 +1,25 @@
 <div class="table-responsive">
     <table class="table" id="farmers-table">
-
+        <?php
+            $Farmers_TR = [
+                "id"	=> "TC Kimlik Numarası",
+                "registration"	=> "Kayıt Tarihi",
+                "name"	=> "İsim",
+                "surname"	=> "Soyisim",
+                "birthday"	=> "Doğum Tarihi",
+                "phone"	=> "Telefon Numarası",
+                "email"	=> "E-Posta",
+                "address"	=> "Adres",
+                "experience"	=> "Deneyim",
+            ];
+        ?>
         @if(isset($result[0]))
             <thead>
             <tr>
-                @foreach( $result[0] as  $header_key => $value )
-                    <th>{{ $header_key }}</th>
+                @foreach( $result[0] as $header_key => $value )
+                    <th>{{ $Farmers_TR[$header_key] }}</th>
                 @endforeach
-                <th colspan="3">Action</th>
+                <th colspan="3">İşlem</th>
             </tr>
             </thead>
             <tbody>
