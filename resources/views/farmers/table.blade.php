@@ -5,7 +5,7 @@
                 "id"	=> "TC Kimlik Numarası",
                 "registration"	=> "Kayıt Tarihi",
                 "name"	=> "İsim",
-                "surname"	=> "Soyisim",
+                "surname"	=> "Soy İsim",
                 "birthday"	=> "Doğum Tarihi",
                 "phone"	=> "Telefon Numarası",
                 "email"	=> "E-Posta",
