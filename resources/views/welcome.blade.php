@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Kooperatif Bilgi Sistemi</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -15,9 +15,22 @@
         </style>
 
         <style>
-            body {
-                font-family: 'Nunito';
-            }
+          body {
+            font-family: 'Nunito';
+          }
+
+          a {
+            color: #0366d6;
+            text-decoration: none;
+          }
+
+          a:visited {
+            color: #0366d6;
+          }
+
+          a:hover {
+            text-decoration: underline;
+          }
         </style>
     </head>
     <body class="antialiased">
@@ -25,12 +38,12 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Anasayfa</a>
+                        <a href="{{ url('/home') }}" class="text-sm text-gray-700">Anasayfa</a>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Giriş Yap</a>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700">Giriş Yap</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Kayıt Ol</a>
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700">Kayıt Ol</a>
                         @endif
                     @endauth
                 </div>
@@ -40,10 +53,8 @@
 
                 <div class="row">
 
-                    <div class="login-logo">
-                        <a href="{{ url('/home') }}"><b>Kooperatif </b>Yönetim Sistemi</a>
-                        <p>Kooperatif Yönetim Uygulamamıza Hoşgeldiniz. Sağ Yukarıdan Giriş yaparak veya Yeni Bir Hesap Açarak Uygulamayı Kullanmaya Başlayabilirsiniz.</p>
-                    </div>
+                    Kooperatif Bilgi Sistemi
+                    <p>Kooperatif Bilgi Sistemi uygulamamıza hoşgeldiniz. <a href="{{ url('/home') }}">Anasayfa</a>ya tıklayarak sistemi kullanmaya başlayabilirsiniz.</p>
                 </div>
 
             </div>
