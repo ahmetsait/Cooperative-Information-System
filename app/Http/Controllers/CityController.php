@@ -30,7 +30,7 @@ class CityController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $header = "Sisteme Kayıtlı Bütün Şehirler";
+        $header = "Şehirler";
         $sql = 'SELECT * FROM cities';
         return $this->query_view_generator($header,__FILE__,$sql,'cities.index','cities-index.jpg');
     }

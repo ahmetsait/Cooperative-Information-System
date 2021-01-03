@@ -30,7 +30,7 @@ class CropController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $header = "Sisteme kayıtlı Mahsüller";
+        $header = "Mahsuller";
         $sql = 'SELECT * FROM crops';
         return $this->query_view_generator($header,__FILE__,$sql,'crops.index','crops-index.jpg');
     }

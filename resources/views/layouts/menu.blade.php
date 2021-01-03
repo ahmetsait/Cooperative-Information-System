@@ -37,7 +37,7 @@
 </li>
 
 <li class="{{ Request::is('solution8*') ? 'active' : '' }}">
-    <a href="{{ route('solution8') }}"><i class="fa fa-edit"></i><span class="wrap">(UNION)Sisteme Kayıtlı Tüm Adresler</span></a>
+    <a href="{{ route('solution8') }}"><i class="fa fa-edit"></i><span class="wrap">(UNION) Sisteme Kayıtlı Tüm Adresler</span></a>
 </li>
 
 <li class="{{ Request::is('solution10*') ? 'active' : '' }}">
@@ -49,13 +49,13 @@
 </li>
 
 <li class="{{ Request::is('solution12*') ? 'active' : '' }}">
-    <a href="{{ route('solution12') }}"><i class="fa fa-edit"></i><span class="wrap">Bütün Arsaların Average Değerinden Küçük Olan Arsaları ve Sahiplerini Dönen Sorgu</span></a>
+    <a href="{{ route('solution12') }}"><i class="fa fa-edit"></i><span class="wrap">(VIEW) Bütün Arsaların Average Değerinden Küçük Olan Arsaları ve Sahiplerini Dönen Sorgu</span></a>
 </li>
 
 <li class="{{ Request::is('solution13*') ? 'active' : '' }}">
-    <a href="{{ route('solution13get') }}"><i class="fa fa-edit"></i><span class="wrap">(Func)Verilen sayidan daha fazla arsaya sahip olan ciftci bilgilerini döndüren sorgu</span></a>
+    <a href="{{ route('solution13get') }}"><i class="fa fa-edit"></i><span class="wrap">(FUNCTION) Verilen sayidan daha fazla arsaya sahip olan ciftci bilgilerini döndüren sorgu</span></a>
 </li>
 
 <li class="{{ Request::is('solution14*') ? 'active' : '' }}">
-    <a href="{{ route('solution14') }}"><i class="fa fa-edit"></i><span class="wrap">(VIEW)Son Beş Yılda Arsalar ve Ekilen Ürünleri Dönen VIEW Sorgusu</span></a>
+    <a href="{{ route('solution14') }}"><i class="fa fa-edit"></i><span class="wrap">(VIEW) Son Beş Yılda Arsalar ve Ekilen Ürünleri Dönen VIEW Sorgusu</span></a>
 </li>
