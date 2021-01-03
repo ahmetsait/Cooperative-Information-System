@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Çiftci
+            Çiftci Düzenle
         </h1>
    </section>
    <div class="content">

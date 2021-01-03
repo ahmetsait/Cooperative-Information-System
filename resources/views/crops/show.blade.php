@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Crop
+            Mahsul
         </h1>
     </section>
     <div class="content">
@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('crops.show_fields')
-                    <a href="{{ route('crops.index') }}" class="btn btn-default">Back</a>
+                    <a href="{{ route('crops.index') }}" class="btn btn-default">Geri</a>
                 </div>
             </div>
         </div>

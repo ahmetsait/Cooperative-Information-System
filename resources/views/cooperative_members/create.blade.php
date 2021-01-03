@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Cooperative Member
+            Kooperatif Üyesi Ekle
         </h1>
     </section>
     <div class="content">
