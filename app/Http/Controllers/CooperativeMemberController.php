@@ -28,7 +28,7 @@ class CooperativeMemberController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $header = "Kooperatifler ve Kayıtlı Üyeler";
+        $header = "Kooperatif Üyeleri";
         $sql =
             'SELECT cooperatives.name as "Uye Olunan Koop.", farmers.name as "Uye Isim",
             cooperativemember.registration , cooperativemember.cooperative_id as "coop_id",

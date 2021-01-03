@@ -1,23 +1,10 @@
 <div class="table-responsive">
     <table class="table" id="farmers-table">
-        <?php
-            $Farmers_TR = [
-                "id"	=> "TC Kimlik Numarası",
-                "registration"	=> "Kayıt Tarihi",
-                "name"	=> "İsim",
-                "surname"	=> "Soyisim",
-                "birthday"	=> "Doğum Tarihi",
-                "phone"	=> "Telefon Numarası",
-                "email"	=> "E-Posta",
-                "address"	=> "Adres",
-                "experience"	=> "Deneyim",
-            ];
-        ?>
         @if(isset($result[0]))
             <thead>
             <tr>
                 @foreach( $result[0] as $header_key => $value )
-                    <th>{{ $Farmers_TR[$header_key] }}</th>
+                    <th>{{ config('translations.Farmers_TR')[$header_key] }}</th>
                 @endforeach
                 <th colspan="3">İşlem</th>
             </tr>
@@ -36,7 +23,7 @@
                                     class="glyphicon glyphicon-eye-open"></i></a>
                             <a href="{{ route('farmers.edit', [$row->id]) }}" class='btn btn-default btn-xs'><i
                                     class="glyphicon glyphicon-edit"></i></a>
-                            {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                            {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Emin misiniz?')"]) !!}
                         </div>
                         {!! Form::close() !!}
                     </td>
@@ -49,7 +36,7 @@
         @if(!isset($result[0]))
                 <thead>
                 <tr>
-                    Sorgu Sonucunda Deger Bulunamadi (Boş Sonuç Dizgesi Döndü)
+                    Sorgu sonucunda değer bulunamadı.
                 </tr>
                 </thead>
             @endif

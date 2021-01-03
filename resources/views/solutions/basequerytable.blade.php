@@ -23,7 +23,7 @@
         @if(!isset($result[0]))
             <thead>
             <tr>
-                Sorgu Sonucunda Deger Bulunamadi (Boş Sonuç Dizgesi Döndü)
+                Sorgu sonucunda değer bulunamadı.
             </tr>
             </thead>
         @endif

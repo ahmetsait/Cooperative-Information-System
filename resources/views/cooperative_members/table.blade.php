@@ -20,7 +20,7 @@
                 <td>
                     {!! Form::open(['route' => ['cooperativeMembers.destroy', ($row->coop_id . '-' . $row->member_id)], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Emin misiniz?')"]) !!}
                     </div>
                     {!! Form::close() !!}
                 </td>
@@ -32,7 +32,7 @@
         @if(!isset($result[0]))
             <thead>
             <tr>
-                Sorgu Sonucunda Deger Bulunamadi (Boş Sonuç Dizgesi Döndü)
+                Sorgu sonucunda değer bulunamadı.
             </tr>
             </thead>
         @endif

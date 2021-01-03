@@ -43,7 +43,7 @@ class AppBaseController extends Controller
     public function query_view_generator($header, $from, $sql, $view = 'solutions.basequery',$image_name = null) {
         $query_result = DB::select($sql);
 
-        Flash::success($from . ' dosyasi calisti. Calistirilan Sorgu: <br> ' . $sql );
+        Flash::success($sql . '<br><br>' . substr($from, strlen(base_path()) + 1));
         return view($view)
             ->with('header',$header)
             ->with('img_name',$image_name)
@@ -51,7 +51,7 @@ class AppBaseController extends Controller
     }
 
     public function query_info_flasher($from, $sql) {
-        Flash::info($from . ' dosyasından calistirilacak olan sorgu: <br> ' . $sql);
+        Flash::info($sql . '<br><br>' . substr($from, strlen(base_path()) + 1));
     }
 
 }

@@ -30,7 +30,7 @@ class FarmController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $header = "Sisteme Kayıtlı Arsalar";
+        $header = "Arsalar";
         $sql = 'SELECT * FROM farms';
         return $this->query_view_generator($header,__FILE__,$sql,'farms.index','farms-index.jpg');
     }

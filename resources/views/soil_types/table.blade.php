@@ -4,9 +4,9 @@
             <thead>
             <tr>
                 @foreach( $result[0] as  $header_key => $value )
-                    <th>{{ $header_key }}</th>
+                    <th>{{ config('translations.SoilTypes_TR')[$header_key] }}</th>
                 @endforeach
-                <th colspan="3">Action</th>
+                <th colspan="3">İşlem</th>
             </tr>
             </thead>
             <tbody>
@@ -22,7 +22,7 @@
                                     class="glyphicon glyphicon-eye-open"></i></a>
                             <a href="{{ route('soilTypes.edit', [$row->id]) }}" class='btn btn-default btn-xs'><i
                                     class="glyphicon glyphicon-edit"></i></a>
-                            {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                            {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Emin misiniz?')"]) !!}
                         </div>
                         {!! Form::close() !!}
                     </td>
@@ -35,7 +35,7 @@
         @if(!isset($result[0]))
             <thead>
             <tr>
-                Sorgu Sonucunda Deger Bulunamadi (Boş Sonuç Dizgesi Döndü)
+                Sorgu sonucunda değer bulunamadı.
             </tr>
             </thead>
         @endif

@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Farm Crop
+            Arsaya Ekili Mahsul Kaydet
         </h1>
     </section>
     <div class="content">

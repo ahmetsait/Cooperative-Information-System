@@ -30,7 +30,7 @@ class CooperativeController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $header = "Sisteme Kayıtlı Kooperatifler";
+        $header = "Kooperatifler";
         $sql = 'SELECT * FROM cooperatives ORDER BY member_count DESC';
         return $this->query_view_generator($header,__FILE__,$sql,'cooperatives.index','cooperatives-index.jpg');
     }

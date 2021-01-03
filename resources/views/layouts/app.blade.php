@@ -24,6 +24,12 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
 
+    <style>
+        .wrap {
+            white-space: normal;
+        }
+    </style>
+
     @yield('css')
 </head>
 
@@ -35,54 +41,14 @@
 
             <!-- Logo -->
             <a href="#" class="logo">
-                <b>Kooperatif Yönetim</b>
+                <b style="font-size: medium;">Kooperatif Bilgi Sistemi</b>
             </a>
 
             <!-- Header Navbar -->
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                </a>
-                <!-- Navbar Right Menu -->
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <!-- User Account Menu -->
-                        <li class="dropdown user user-menu">
-                            <!-- Menu Toggle Button -->
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <!-- The user image in the navbar-->
-                                <img src="https://cdn.pixabay.com/photo/2020/12/20/04/06/bear-5846065_960_720.jpg"
-                                     class="user-image" alt="User Image"/>
-                                <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs">{{ Auth::user()->name }}</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <!-- The user image in the menu -->
-                                <li class="user-header">
-                                    <img src="https://cdn.pixabay.com/photo/2020/12/20/04/06/bear-5846065_960_720.jpg"
-                                         class="img-circle" alt="Kullanıcı Resmi"/>
-                                    <p>
-                                        {{ Auth::user()->name }}
-                                        <small>Şu tarihten beridir üye:  {{ Auth::user()->created_at->format('M. Y') }}</small>
-                                    </p>
-                                </li>
-                                <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    <div class="pull-right">
-                                        <a href="{{ url('/logout') }}" class="btn btn-default btn-flat"
-                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            Çıkış Yap
-                                        </a>
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"></a>
+
             </nav>
         </header>
 
@@ -95,7 +61,6 @@
 
         <!-- Main Footer -->
         <footer class="main-footer" style="max-height: 100px;text-align: center">
-            <strong>Copyright © 2020 <a href="#">Kooperatif Yönetim Sistemi</a>.</strong> Bütün Hakları Saklıdır..
         </footer>
 
     </div>
