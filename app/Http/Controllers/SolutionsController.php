@@ -11,7 +11,7 @@ class SolutionsController extends AppBaseController
 
     public function solution_8()
     {
-        $header = "Sisteme Kayitli Tum Adresler";
+        $header = "Sisteme Kayıtlı Tüm Adresler";
         $sql = '(SELECT address FROM cooperatives) UNION (SELECT address FROM farmers);';
         $this->query_info_flasher(__FILE__, $sql);
         return $this->query_view_generator($header, __FILE__, $sql, 'solutions.basequery', 'solutions-8.jpg');
@@ -20,7 +20,7 @@ class SolutionsController extends AppBaseController
 
     public function solution_smaller_than_average()
     {
-        $header = "Bütün Arsaların Average Değerinden Küçük Olan Arsaları ve Sahiplerini Dönen Sorgu";
+        $header = "Bütün Arsaların Ortalama Değerinden Küçük Olan Arsalar ve Sahipleri";
         $sql = 'SELECT id as "Arsa ID",owner_id "Sahip TC" FROM Farms WHERE (area * unit_worth) < (SELECT AVG(area * unit_worth) FROM Farms);';
         $this->query_info_flasher(__FILE__, $sql);
         return $this->query_view_generator($header, __FILE__, $sql, 'solutions.basequery', 'solutions-average.jpg');
@@ -29,7 +29,7 @@ class SolutionsController extends AppBaseController
 
     public function solution_10_get(Request $request)
     {
-        $header = "Verilen Mahsulu Eken Ciftcilerden Kooperatife Uye Olanların Kooperatiflerinin İsimlerini ve Kendi İsimlerini Listeleyen Sorgu";
+        $header = "Verilen Mahsulu Eken Çiftçiler ve Kooperatifleri";
         $sql = "SELECT fr.name as CiftciIsim,co.name as KooperatifIsmi FROM cooperativemember cm
                 LEFT JOIN farmers fr
                 ON cm.member_id = fr.id
@@ -54,7 +54,7 @@ class SolutionsController extends AppBaseController
     public function solution_10_post(Request $request)
     {
         $input = $request->get('input');
-        $header = $input . " Mahsulunu Eken Ciftcileri ve Uye Olduklari Kooperatifleri Listeleyen Sorgu";
+        $header = $input . " Mahsulunu Eken Çiftçiler ve Kooperatifleri";
         $sql = "SELECT fr.name as CiftciIsim,co.name as KooperatifIsmi FROM cooperativemember cm
                 LEFT JOIN farmers fr
                 ON cm.member_id = fr.id
@@ -75,7 +75,7 @@ class SolutionsController extends AppBaseController
 
     public function solution_11_get()
     {
-        $header = "Verilen Mahsulu Eken Ciftcileri İsim ve Soyisimleri";
+        $header = "Verilen Mahsulu Eken Çiftçilerin İsimleri";
         $sql = "SELECT name, surname
                 FROM farmers f, farms fa, farmcrop fc, crops c
                 WHERE f.id=fa.owner_id AND fc.farm_id=fa.id
@@ -90,7 +90,7 @@ class SolutionsController extends AppBaseController
     public function solution_11_post(Request $request)
     {
         $input = $request->get('input');
-        $header = $input . " Mahsulunu Eken Ciftcilerin İsim ve Soyisimleri";
+        $header = $input . " Mahsulunu Eken Çiftçilerin İsimleri";
         $sql = "SELECT f.name, f.surname
                 FROM farmers f, farms fa, farmcrop fc, crops c
                 WHERE f.id=fa.owner_id AND fc.farm_id=fa.id
@@ -101,7 +101,7 @@ class SolutionsController extends AppBaseController
 
     public function solution_13_get(Request $request)
     {
-        $header = "Verilen sayidan daha fazla arsaya sahip olan ciftci bilgilerini döndüren sorgu";
+        $header = "Verilen Sayıdan Daha Fazla Arsaya Sahip Olan Çiftçiler";
         $sql = "SELECT * FROM get_farmer_own_farm_bigger_than_given(VERILEN_DEGER);";
 
         $this->query_info_flasher(__FILE__, $sql);
@@ -114,22 +114,18 @@ class SolutionsController extends AppBaseController
     public function solution_13_post(Request $request)
     {
         $input = $request->get('input');
-        $header = $input . " sayisından daha fazla arsaya sahip olan ciftci bilgilerini döndüren sorgu";
+        $header = $input . " Sayısıdan Daha Fazla Arsaya Sahip Olan Çiftçiler";
         $sql = "SELECT * FROM get_farmer_own_farm_bigger_than_given(" . $input . ");";
         return $this->query_view_generator($header, __FILE__, $sql, 'solutions.13');
     }
 
     public function solution_14()
     {
-        $header = "Son Beş Yılda Arsalar ve Ekilen Ürünleri Dönen VIEW Sorgusu";
+        $header = "Son Beş Yılda Ekilen Ürünler ve Arsaları";
         $sql = "SELECT * FROM planted_information_last_5_year;";
         $this->query_info_flasher(__FILE__, $sql);
         return $this->query_view_generator($header, __FILE__, $sql,'solutions.basequery', 'solutions-14.jpg');
     }
-
-    /*
-    */
-
 
     public function get_custom_query_page()
     {

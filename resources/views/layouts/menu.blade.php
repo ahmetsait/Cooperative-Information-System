@@ -16,11 +16,11 @@
 </li>
 
 <li class="{{ Request::is('crops*') ? 'active' : '' }}">
-    <a href="{{ route('crops.index') }}"><i class="fa fa-edit"></i><span class="wrap">Mahsüller</span></a>
+    <a href="{{ route('crops.index') }}"><i class="fa fa-edit"></i><span class="wrap">Mahsuller</span></a>
 </li>
 
 <li class="{{ Request::is('farmCrops*') ? 'active' : '' }}">
-    <a href="{{ route('farmCrops.index') }}"><i class="fa fa-edit"></i><span class="wrap">Arsadaki Mahsüller</span></a>
+    <a href="{{ route('farmCrops.index') }}"><i class="fa fa-edit"></i><span class="wrap">Arsalara Ekili Mahsuller</span></a>
 </li>
 
 
@@ -29,11 +29,11 @@
 </li>
 
 <li class="{{ Request::is('cooperativeMembers*') ? 'active' : '' }}">
-    <a href="{{ route('cooperativeMembers.index') }}"><i class="fa fa-edit"></i><span class="wrap">Kooperatife Üye Olanlar</span></a>
+    <a href="{{ route('cooperativeMembers.index') }}"><i class="fa fa-edit"></i><span class="wrap">Kooperatif Üyeleri</span></a>
 </li>
 
 <li class="{{ Request::is('basequery*') ? 'active' : '' }}">
-    <a href="{{ route('basequery') }}"><i class="fa fa-edit"></i><span class="wrap">Özgün Sorgu</span></a>
+    <a href="{{ route('basequery') }}"><i class="fa fa-edit"></i><span class="wrap">SQL Sorgu</span></a>
 </li>
 
 <li class="{{ Request::is('solution8*') ? 'active' : '' }}">
@@ -41,21 +41,21 @@
 </li>
 
 <li class="{{ Request::is('solution10*') ? 'active' : '' }}">
-    <a href="{{ route('solution10get') }}"><i class="fa fa-edit"></i><span class="wrap">Verilen Mahsulu Eken Ciftciler ve Kooperatifleri</span></a>
+    <a href="{{ route('solution10get') }}"><i class="fa fa-edit"></i><span class="wrap">Verilen Mahsulu Eken Çiftçiler ve Kooperatifleri</span></a>
 </li>
 
 <li class="{{ Request::is('solution11*') ? 'active' : '' }}">
-    <a href="{{ route('solution11get') }}"><i class="fa fa-edit"></i><span class="wrap">Verilen Mahsulu Eken Ciftcilerin İsim ve Soyisimleri</span></a>
+    <a href="{{ route('solution11get') }}"><i class="fa fa-edit"></i><span class="wrap">Verilen Mahsulu Eken Çiftçilerin İsimleri</span></a>
 </li>
 
 <li class="{{ Request::is('solution12*') ? 'active' : '' }}">
-    <a href="{{ route('solution12') }}"><i class="fa fa-edit"></i><span class="wrap">(VIEW) Bütün Arsaların Average Değerinden Küçük Olan Arsaları ve Sahiplerini Dönen Sorgu</span></a>
+    <a href="{{ route('solution12') }}"><i class="fa fa-edit"></i><span class="wrap">(VIEW) Bütün Arsaların Ortalama Değerinden Küçük Olan Arsalar ve Sahipleri</span></a>
 </li>
 
 <li class="{{ Request::is('solution13*') ? 'active' : '' }}">
-    <a href="{{ route('solution13get') }}"><i class="fa fa-edit"></i><span class="wrap">(FUNCTION) Verilen sayidan daha fazla arsaya sahip olan ciftci bilgilerini döndüren sorgu</span></a>
+    <a href="{{ route('solution13get') }}"><i class="fa fa-edit"></i><span class="wrap">(FUNCTION) Verilen Sayıdan Daha Fazla Arsaya Sahip Olan Çiftçiler</span></a>
 </li>
 
 <li class="{{ Request::is('solution14*') ? 'active' : '' }}">
-    <a href="{{ route('solution14') }}"><i class="fa fa-edit"></i><span class="wrap">(VIEW) Son Beş Yılda Arsalar ve Ekilen Ürünleri Dönen VIEW Sorgusu</span></a>
+    <a href="{{ route('solution14') }}"><i class="fa fa-edit"></i><span class="wrap">(VIEW) Son Beş Yılda Ekilen Ürünler ve Arsaları</span></a>
 </li>
